@@ -199,6 +199,8 @@ fn compute(
     if (@hasField(Data, "wcwidth_zero_in_grapheme")) {
         if (width == 0 or // Includes default_ignorable such as ZWJ and VS
             data.is_emoji_modifier or
+            gc == .other_format or
+            gc == .mark_spacing_combining or
             gc == .mark_nonspacing or
             gc == .mark_enclosing or // Including keycap
             data.grapheme_break == .v or // Hangul Jamo and Kirat Rai vowels
